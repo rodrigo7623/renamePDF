@@ -16,6 +16,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.text.ParseException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -60,8 +61,8 @@ public class NewJFrame extends javax.swing.JFrame {
         ImageIcon imageIcon = new javax.swing.ImageIcon(getClass().getResource("/icono/cavapy.jpg"));
         Image imagen = imageIcon.getImage();
         ImageIcon iconoEscalado = new ImageIcon(imagen.getScaledInstance(300, 80, Image.SCALE_SMOOTH));
-        jLabelLogoCavapyCda.setIcon(iconoEscalado);
-        jLabelLogoCavapyAcc.setIcon(iconoEscalado);
+        //jLabelLogoCavapyCda.setIcon(iconoEscalado);
+        //jLabelLogoCavapyAcc.setIcon(iconoEscalado);
         prefsCda = Preferences.userNodeForPackage(NewJFrame.class);
         prefsAcc = Preferences.userNodeForPackage(NewJFrame.class);
         jTextFieldCarpetaContenedoraCda.setText(prefsCda.get("carpetaContenedora", ""));
@@ -95,7 +96,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jTextFieldPrefijoDelPDFCda = new javax.swing.JTextField();
         jTextFieldNuevoNombrePDF = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabelLogoCavapyCda = new javax.swing.JLabel();
         jTextFieldPDFInicialCda = new javax.swing.JTextField();
         jSpinnerInicioNum = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
@@ -110,7 +110,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabelPrefijoDelPDF1 = new javax.swing.JLabel();
         jTextFieldPrefijoDelPDFAcc = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jLabelLogoCavapyAcc = new javax.swing.JLabel();
         jTextFieldPDFInicialAcc = new javax.swing.JTextField();
         jSpinnerInicioNumAcc = new javax.swing.JSpinner();
         jLabel8 = new javax.swing.JLabel();
@@ -236,44 +235,33 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(680, 680, 680))
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldCarpetaContenedoraCda, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonExaminar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(197, 197, 197)
+                        .addComponent(jButtonProcesarCda, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(196, 196, 196)
+                        .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextFieldCarpetaContenedoraCda, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButtonExaminar))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jSpinnerInicioNum, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jSpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 390, Short.MAX_VALUE)
-                                        .addComponent(jLabelLogoCavapyCda, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldPDFInicialCda, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNuevoNombrePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldPrefijoDelPDFCda, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(197, 197, 197)
-                                .addComponent(jButtonProcesarCda, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(196, 196, 196)
-                                .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(181, 181, 181))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabelPrefijoDelPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jSpinnerInicioNum, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldPDFInicialCda, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNuevoNombrePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldPrefijoDelPDFCda, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabelPrefijoDelPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(618, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,30 +274,24 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldPDFInicialCda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNuevoNombrePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinnerInicioNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCarpetaContenedoraCda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonExaminar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabelLogoCavapyCda, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNuevoNombrePDF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(jSpinnerInicioNum))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCarpetaContenedoraCda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonExaminar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonProcesarCda, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -422,35 +404,26 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jTextFieldCarpetaContenedoraAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButtonExaminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextFieldPrefijoDelPDFAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldPDFInicialAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jButtonProcesarAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(176, 176, 176)
-                                        .addComponent(jButtonSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(58, 619, Short.MAX_VALUE))
+                                .addComponent(jTextFieldCarpetaContenedoraAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonExaminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldPrefijoDelPDFAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldPDFInicialAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSpinnerFinNumAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSpinnerInicioNumAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelLogoCavapyAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(219, 219, 219))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelPrefijoDelPDF1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jButtonProcesarAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(176, 176, 176)
+                                .addComponent(jButtonSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jSpinnerInicioNumAcc, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                .addComponent(jSpinnerFinNumAcc))))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPrefijoDelPDF1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(145, 619, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,25 +439,20 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldPDFInicialAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinnerInicioNumAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinnerFinNumAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabelLogoCavapyAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSpinnerInicioNumAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinnerFinNumAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldCarpetaContenedoraAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonExaminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonProcesarAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -700,88 +668,88 @@ public class NewJFrame extends javax.swing.JFrame {
                 fecha.append(fechaActual.get(Calendar.MONTH) < 9 ? "0" + (fechaActual.get(Calendar.MONTH) + 1) : (fechaActual.get(Calendar.MONTH) + 1));
                 fecha.append(fechaActual.get(Calendar.YEAR));
                 File folderFecha = new File(folderProcesados.getAbsolutePath() + "\\" + fecha.toString());
-                    if (!folderFecha.exists()) {
-                        folderFecha.mkdir();
-                    }
-                    /**
-                    * crea la carpeta con nombre de la hora actual
-                    */
-                    fecha = new StringBuilder();
-                    fecha.append(fechaActual.get(Calendar.HOUR_OF_DAY) < 10 ? "0" + (fechaActual.get(Calendar.HOUR_OF_DAY)) : fechaActual.get(Calendar.HOUR_OF_DAY));
-                    fecha.append(fechaActual.get(Calendar.MINUTE) < 10 ? "0" + (fechaActual.get(Calendar.MINUTE)) : fechaActual.get(Calendar.MINUTE));
-                    fecha.append(fechaActual.get(Calendar.SECOND) < 10 ? "0" + (fechaActual.get(Calendar.SECOND)) : fechaActual.get(Calendar.SECOND));
-                    File folderHora = new File(folderFecha.getAbsolutePath() + "\\" + fecha.toString());
-                        if (!folderHora.exists()) {
-                            folderHora.mkdir();
+                if (!folderFecha.exists()) {
+                    folderFecha.mkdir();
+                }
+                /**
+                * crea la carpeta con nombre de la hora actual
+                */
+                fecha = new StringBuilder();
+                fecha.append(fechaActual.get(Calendar.HOUR_OF_DAY) < 10 ? "0" + (fechaActual.get(Calendar.HOUR_OF_DAY)) : fechaActual.get(Calendar.HOUR_OF_DAY));
+                fecha.append(fechaActual.get(Calendar.MINUTE) < 10 ? "0" + (fechaActual.get(Calendar.MINUTE)) : fechaActual.get(Calendar.MINUTE));
+                fecha.append(fechaActual.get(Calendar.SECOND) < 10 ? "0" + (fechaActual.get(Calendar.SECOND)) : fechaActual.get(Calendar.SECOND));
+                File folderHora = new File(folderFecha.getAbsolutePath() + "\\" + fecha.toString());
+                if (!folderHora.exists()) {
+                    folderHora.mkdir();
+                }
+                /**
+                * crea la carpeta donde se almacenan los pdf's renombrados
+                */
+                LocalDateTime dateTime = LocalDateTime.now();
+                String month = dateTime.getMonth().getValue() < 10 ? "0" + dateTime.getMonth().getValue() : String.valueOf(dateTime.getMonth().getValue());
+                File folder = new File(carpetaContenedora + "\\" + dateTime.getYear() + "-" + month + "-" + dateTime.getDayOfMonth());
+                if (!folder.exists()) {
+                    folder.mkdir();
+                }
+                for (String archivoPdf : list) {
+
+                    if (existsFileCda(archivoPdf)) {
+
+                        Path source = Paths.get(carpetaContenedora + "\\" + archivoPdf);
+                        Path target = Paths.get(folderHora.getAbsolutePath()); // destino
+                        /**
+                        * copia a la carpeta procesados el pdf
+                        */
+                        try {
+                            Files.copy(source, target.resolve(source.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+                        } catch (IOException ex) {
+                            Logger.getLogger(InicioJFrame.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         /**
-                        * crea la carpeta donde se almacenan los pdf's renombrados
+                        * renombra el archivo original con el valor del campo de
+                        * texto 'nuevo nombre pdf'
                         */
-                        File folder = new File(carpetaContenedora + "\\" + nuevoNombrePdf);
-                            if (!folder.exists()) {
-                                folder.mkdir();
-                            }
 
-                            for (String archivoPdf : list) {
+                        String concatNumeracionPrimerDoc = "";
+                        if (numeracionPrimerDoc < 10) {
+                            concatNumeracionPrimerDoc = "00" + numeracionPrimerDoc;
+                        }
+                        if (numeracionPrimerDoc >= 10 && numeracionPrimerDoc < 100) {
+                            concatNumeracionPrimerDoc = "0" + numeracionPrimerDoc;
+                        }
+                        if (numeracionPrimerDoc >= 100) {
+                            concatNumeracionPrimerDoc = String.valueOf(numeracionPrimerDoc);
+                        }
 
-                                if (existsFileCda(archivoPdf)) {
-
-                                    Path source = Paths.get(carpetaContenedora + "\\" + archivoPdf);
-                                        Path target = Paths.get(folderHora.getAbsolutePath()); // destino
-                                        /**
-                                        * copia a la carpeta procesados el pdf
-                                        */
-                                        try {
-                                            Files.copy(source, target.resolve(source.getFileName()), StandardCopyOption.REPLACE_EXISTING);
-                                        } catch (IOException ex) {
-                                            Logger.getLogger(InicioJFrame.class.getName()).log(Level.SEVERE, null, ex);
-                                        }
-                                        /**
-                                        * renombra el archivo original con el valor del campo de
-                                        * texto 'nuevo nombre pdf'
-                                        */
-
-                                        String concatNumeracionPrimerDoc = "";
-                                        if (numeracionPrimerDoc < 10) {
-                                            concatNumeracionPrimerDoc = "00" + numeracionPrimerDoc;
-                                        }
-                                        if (numeracionPrimerDoc >= 10 && numeracionPrimerDoc < 100) {
-                                            concatNumeracionPrimerDoc = "0" + numeracionPrimerDoc;
-                                        }
-                                        if (numeracionPrimerDoc >= 100) {
-                                            concatNumeracionPrimerDoc = String.valueOf(numeracionPrimerDoc);
-                                        }
-
-                                        if (archivoPdf.substring(prefijoDelPdf.length(), archivoPdf.indexOf(".")).equals(String.valueOf(concatNumeracionPrimerDoc))) {
-                                            File archivo = new File(carpetaContenedora + "\\" + archivoPdf);
-                                                File archivoRenombrado = new File(carpetaContenedora + "\\" + nuevoNombrePdf + ".pdf");
-                                                    archivo.renameTo(archivoRenombrado.getAbsoluteFile());
-                                                    source = Paths.get(archivoRenombrado.getAbsolutePath()); // origen de los archivos a procesar
-                                                    target = Paths.get(folder.getAbsolutePath()); // destino
-                                                } else {
-                                                    File archivo = new File(carpetaContenedora + "\\" + archivoPdf);
-                                                        File archivoRenombrado = new File(carpetaContenedora + "\\" + nuevoNombrePdf + "-" + inicioNum + ".pdf");
-                                                            archivo.renameTo(archivoRenombrado.getAbsoluteFile());
-                                                            inicioNum += 1;
-                                                            source = Paths.get(archivoRenombrado.getAbsolutePath()); // origen de los archivos a procesar
-                                                            target = Paths.get(folder.getAbsolutePath()); // destino
-                                                        }
-                                                        jProgressBar.setValue(90);
-                                                        /**
-                                                        * se mueven el archivo principal renombrado
-                                                        */
-                                                        try {
-                                                            Files.move(source, target.resolve(source.getFileName()), StandardCopyOption.REPLACE_EXISTING);
-                                                        } catch (IOException ex) {
-                                                            Logger.getLogger(InicioJFrame.class.getName()).log(Level.SEVERE, null, ex);
-                                                        }
-                                                        jProgressBar.setValue(100);
-                                                    }
-                                                }
-                                                JOptionPane.showMessageDialog(null, "Procesado correctamente", "RenamePDF", JOptionPane.INFORMATION_MESSAGE);
-                                            }
-
-                                        }
+                        if (archivoPdf.substring(prefijoDelPdf.length(), archivoPdf.indexOf(".")).equals(String.valueOf(concatNumeracionPrimerDoc))) {
+                            File archivo = new File(carpetaContenedora + "\\" + archivoPdf);
+                            File archivoRenombrado = new File(carpetaContenedora + "\\" + nuevoNombrePdf + ".pdf");
+                            archivo.renameTo(archivoRenombrado.getAbsoluteFile());
+                            source = Paths.get(archivoRenombrado.getAbsolutePath()); // origen de los archivos a procesar
+                            target = Paths.get(folder.getAbsolutePath()); // destino
+                        } else {
+                            File archivo = new File(carpetaContenedora + "\\" + archivoPdf);
+                            File archivoRenombrado = new File(carpetaContenedora + "\\" + nuevoNombrePdf + "-" + inicioNum + ".pdf");
+                                archivo.renameTo(archivoRenombrado.getAbsoluteFile());
+                                inicioNum += 1;
+                                source = Paths.get(archivoRenombrado.getAbsolutePath()); // origen de los archivos a procesar
+                                target = Paths.get(folder.getAbsolutePath()); // destino
+                        }
+                        jProgressBar.setValue(90);
+                        /**
+                        * se mueven el archivo principal renombrado
+                        */
+                        try {
+                            Files.move(source, target.resolve(source.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+                        } catch (IOException ex) {
+                            Logger.getLogger(InicioJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        jProgressBar.setValue(100);
+                    }
+                }
+                JOptionPane.showMessageDialog(null, "Procesado correctamente", "RenamePDF", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_jButtonProcesarCdaActionPerformed
 
     private void jSpinnerFinNumAccKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jSpinnerFinNumAccKeyPressed
@@ -1138,8 +1106,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabelLogoCavapyAcc;
-    private javax.swing.JLabel jLabelLogoCavapyCda;
     private javax.swing.JLabel jLabelPrefijoDelPDF;
     private javax.swing.JLabel jLabelPrefijoDelPDF1;
     private javax.swing.JPanel jPanel1;
